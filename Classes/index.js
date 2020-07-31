@@ -20,8 +20,17 @@ IT ALSO HAS ANOTHER PROPERTY type THAT EQUALS THE STRING 'parent class'
 */
 
 function MyFirstClass(name) {
-  // CODE HERE
+  this.name = name;
+  this.type = 'parent class'
+
 }
+
+
+MyFirstClass.prototype.getNumberOfChars = function () {
+  return this.name.length
+};
+
+
 
 /*
 QUESTION 2
