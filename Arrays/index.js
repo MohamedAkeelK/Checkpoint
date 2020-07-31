@@ -247,10 +247,19 @@ var twoDimentionArray = [
 retrieveValue(twoDimentionArray, 3, 1) ===> 1
 
 */
+var twoDimentionArray = [
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 1, 0, 0],
+]
+
+
 
 function retrieveValue(arr, row, col) {
-  // CODE HERE
+  return (arr[row][col])
 }
+retrieveValue(twoDimentionArray, 3, 1)
 
 /*
 QUESTION 9
@@ -277,11 +286,17 @@ createTwoDArray(3, 5) ===> [
                             ]
 
 */
-
 function createTwoDArray(row, col) {
-  // CODE HERE
+  var myarray = []
+  for(let i = 0; i < row; i++) {
+   myarray[i] = []
+    for(let j = 0; j < col; j++) {
+      myarray[i][j] = 0
+    }
+  }
+  return myarray
 }
-
+createTwoDArray(3, 5);
 /*
 TEST SECTION, PLEASE DO NOT TOUCH
 
