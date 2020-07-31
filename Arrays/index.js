@@ -38,11 +38,16 @@ pushTrue([1,2,3]) ===> [1, 2, 3, 'last element']
 
 */
 
+
 function pushString(arr) {
-  // CODE HERE
-  console.log(arr);
+  arr[arr.length] = arr[arr.length + 1]
+  arr[arr.length - 1] = "last element"
+  // console.log(arr);
+  return arr;
 }
 
+pushString([])
+// pushString([1,2,3])
 /*
 QUESTION 2
 
@@ -57,9 +62,15 @@ mutateZeroElem([1,2,3]) ===> [1, 2, 3, true]
 
 */
 
-function push(array, value) {
-  // CODE HERE
+
+function push(arr, val) {
+  arr[arr.length] = arr[arr.length + 1]
+  arr[arr.length - 1] = val
+  // console.log(arr);
+  return arr;
 }
+
+push([1,2,3,4], "true")
 
 /*
 QUESTION 3
@@ -80,7 +91,9 @@ true
 */
 
 function printElements(array) {
-  // CODE HERE
+  for(i = 0; i < array.length; i++) {
+    console.log(array[i])
+  }
 }
 
 /*
@@ -109,8 +122,27 @@ unique([1,2,3,2,3,2]) ===> [1, 2, 3];
 */
 
 function unique(array) {
-  // CODE HERE
+  var outputArray = []; 
+   var count = 0; 
+   var start = false; 
+     
+   for (j = 0; j < array.length; j++) { 
+       for (k = 0; k < outputArray.length; k++) { 
+           if ( array[j] == outputArray[k] ) { 
+               start = true; 
+           } 
+       } 
+       count++; 
+       if (count == 1 && start == false) { 
+           outputArray.push(array[j]); 
+       } 
+       start = false; 
+       count = 0; 
+   } 
+   return (outputArray); 
 }
+
+unique([1,2,3,1,2,3])
 
 /*
 QUESTION 5
@@ -124,9 +156,30 @@ HINT USE AN INNER FOR-LOOP
 
 */
 
+
 function compare(array1, array2) {
-  // CODE HERE
-}
+
+  var newArr = [];
+  var count = 0;
+
+    for(let i = 0; i < array1.length; i++) {
+      newArr.push(array1[i])
+
+        for(let j = 0; j < array2.length ; j++) {
+          if(array2[j] === newArr[i]) {
+            count++
+          }
+        }
+    }        
+       
+      if(count >= 2) {
+        return true;
+      } else {
+        return [];
+      }
+  }
+  
+  compare([1,3,2], [5,6,3,4,8,1] )
 
 /*
 QUESTION 6
@@ -140,9 +193,24 @@ compareArrays([1, 2, 3, 4], [1, 2]) ====> [1, 2]
 
 */
 
+
 function compareArrays(array1, array2) {
-  // CODE HERE
-}
+
+  var newArr = [];
+
+    for(let i = 0; i < array1.length; i++) {
+
+        for(let j = 0; j < array2.length ; j++) {
+          if(array2[j] === array1[i]) {
+            newArr.push(array1[i])
+          }
+        }
+    }        
+
+    return newArr
+  }
+  
+  compareArrays([1,3,2,5], [5,6,3,4,8,1] )
 
 /*
 QUESTION 7
