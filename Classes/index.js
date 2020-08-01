@@ -20,82 +20,91 @@ IT ALSO HAS ANOTHER PROPERTY type THAT EQUALS THE STRING 'parent class'
 */
 
 function MyFirstClass(name) {
-  this.name = name;
-  this.type = 'parent class'
-
-}
-
-
-MyFirstClass.prototype.getNumberOfChars = function () {
-  return this.name.length
-};
-
-
-
-/*
-QUESTION 2
-
-USING THE PROTOTYPE CHAIN, ADD THE METHOD getNumberOfChars THAT JUST RETURNS THE NUMBER OF CHARACTERS IN THE NAME
-
-*/
-
-// CODE HERE
-
-/*
-QUESTION 3
-
-CREATE A CLASS MySecondClass THAT INHERITS PROPERTIES FROM MyFirstClass. MySecondClass ALSO HAS A PARAMETER name THAT WILL BE PASSED TO MyFirstClass
-
-REMEMBER TO USE THE METHOD call AND FEED this AS THE FIRST ARGUMENT
-
-
-*/
-
-function MySecondClass(name) {
+    this.name = name;
+    this.type = 'parent class';
+    this.getNumberOfChars =  MyFirstClass.prototype.getNumberOfChars = function () {
+      return this.name.length
+    };
+  
+  }
+  // MyFirstClass.prototype.getNumberOfChars = function () {
+  //   return this.name.length
+  // }
+  
+  // MyFirstClass.prototype.getNumberOfChars = function () {
+  //   return this.name.length
+  // };
+  
+  
+  
+  /*
+  QUESTION 2
+  
+  USING THE PROTOTYPE CHAIN, ADD THE METHOD getNumberOfChars THAT JUST RETURNS THE NUMBER OF CHARACTERS IN THE NAME
+  
+  */
+  
   // CODE HERE
-}
-
-/*
-QUESTION 4
-
-MAKE IT THAT MySecondClass INHERITS METHODS FROM MyFirstClass
-
-YOU MAY WANT TO LINK THE PROTOTYPICAL CHAINS AND USE Object.create
-
-
-*/
-
-// CODE HERE
-
-/*
-QUESTION 5
-
-MAKE SURE THE CONSTRUCTOR FUNCTION FOR MySecondClass's INSTANCE IS INDEED MySecondClass
-
-
-*/
-
-// CODE HERE
-
-/*
-TEST SECTION, PLEASE DO NOT TOUCH
-
-
-
-
-*/
-
-const Mocha = require('mocha');
-
-const runner = new Mocha({});
-
-runner.addFile('./test.js');
-
-runner.run();
-
-module.exports = {
-  MyFirstClass,
-  MySecondClass,
-};
-
-console.log('');
+  
+  /*
+  QUESTION 3
+  
+  CREATE A CLASS MySecondClass THAT INHERITS PROPERTIES FROM MyFirstClass. 
+  MySecondClass ALSO HAS A PARAMETER name THAT WILL BE PASSED TO MyFirstClass
+  
+  REMEMBER TO USE THE METHOD call AND FEED this AS THE FIRST ARGUMENT
+  
+  
+  */
+  
+  function MySecondClass(name) {
+    MyFirstClass.call(this);
+   
+    
+  }
+  
+  /*
+  QUESTION 4
+  
+  MAKE IT THAT MySecondClass INHERITS METHODS FROM MyFirstClass
+  
+  YOU MAY WANT TO LINK THE PROTOTYPICAL CHAINS AND USE Object.create
+  
+  
+  */
+  
+  // CODE HERE
+  
+  /*
+  QUESTION 5
+  
+  MAKE SURE THE CONSTRUCTOR FUNCTION FOR MySecondClass's INSTANCE IS INDEED MySecondClass
+  
+  
+  */
+  
+  // CODE HERE
+  
+  /*
+  TEST SECTION, PLEASE DO NOT TOUCH
+  
+  
+  
+  
+  */
+  
+  const Mocha = require('mocha');
+  
+  const runner = new Mocha({});
+  
+  runner.addFile('./test.js');
+  
+  runner.run();
+  
+  module.exports = {
+    MyFirstClass,
+    MySecondClass,
+  };
+  
+  console.log('');
+  
